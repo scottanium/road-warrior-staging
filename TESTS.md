@@ -1,4 +1,4 @@
-# Road Warrior v26 (staging copy) — self-test checklist
+# Road Warrior v26 staging (cache v26b) — self-test checklist
 
 Rerunnable. After EVERY change run (about 40 s; the full `selftest.py both` run adds the deeper geocode and staging scripts, about 2 more minutes):
 
@@ -19,7 +19,7 @@ Screenshots land in `/workspace/road-warrior-overhaul/shots/<live|staging>/` (ev
 - [ ] Tournaments tab shows the default location and listings; 50+ snapshot events; library has 250+ items; Credits shows the contact email.
 - [ ] `pool-trainer-single.html` loads with no errors and renders.
 - [ ] `sw.js` FILES lists every file that exists and every `<script src>`; the cache name has the right prefix; no secrets in code; live has no staging bits.
-- [ ] Staging only: STAGING banner present; storage keys all `stg_`-prefixed.
+- [ ] Staging only: TEST banner present; storage keys all `stg_`-prefixed.
 
 ## Tournament location lookup (Nominatim / Zippopotam) — `qa/qa_geocode.py` (live)
 
@@ -34,9 +34,9 @@ Screenshots land in `/workspace/road-warrior-overhaul/shots/<live|staging>/` (ev
 
 ## Staging only — `qa/qa_staging.py`
 
-- [ ] A red/orange **STAGING — test copy, not the live app** bar on iPhone-sized and desktop-sized screens, not covering the title, refresh button or tabs.
+- [ ] A red/orange **TEST COPY - staging** bar on iPhone-sized and desktop-sized screens, not covering the title, refresh button or tabs.
 - [ ] **I Agree** saves `stg_poolTrainer.legalAgreed` and does not write the bare key; live-style keys are never read or cleared (`localStorage.clear()` only drops `stg_` keys).
-- [ ] The service worker cache is `road-warrior-staging-v26` (never `pool-trainer-*`).
+- [ ] The service worker cache is `road-warrior-staging-v26b` (never `pool-trainer-*`).
 - [ ] Shot Lab, the Tournaments lookup (network stubbed) and Credits load with no console errors; the single-file build works.
 
 ## Manual spot checks (Scott's feel test, on the phone)
@@ -44,3 +44,4 @@ Screenshots land in `/workspace/road-warrior-overhaul/shots/<live|staging>/` (ev
 - [ ] Open each tab once; nothing looks different from v25.
 - [ ] Tournaments: the list, your location and Trip Cost numbers look the same as before.
 - [ ] Library search, the Daily plan with its layout pictures, Rules Compare and Credits look the same.
+- [ ] After re-adding the staging app to the home screen, the icon has a red/orange TEST banner and the name is RW TEST (not the live Road Warrior icon).

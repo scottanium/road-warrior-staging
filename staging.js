@@ -1,4 +1,4 @@
-// Staging-only shim. Do not ship this file (or the STAGING banner) in the live app.
+// Staging-only shim. Do not ship this file (or the TEST banner) in the live app.
 // Prefixes every localStorage / sessionStorage key with "stg_" so this copy
 // never reads or writes the live app's saved data on the same origin.
 (function () {
@@ -81,7 +81,7 @@
       el = document.createElement("div");
       el.id = "pt-staging-banner";
       el.setAttribute("role", "status");
-      el.textContent = "STAGING — test copy, not the live app";
+      el.textContent = "TEST COPY - staging";
       document.body.insertBefore(el, document.body.firstChild);
     }
     fit();

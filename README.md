@@ -4,9 +4,9 @@ Pool tournament tracker and trainer. It runs in the browser on your phone, works
 
 - **Live app:** https://scottanium.github.io/road-warrior/
 - **Staging (test copy):** https://scottanium.github.io/road-warrior-staging/
-- **Version:** v26 = v25 features, with the content moved into `data/` files (code overhaul; nothing you see should have changed). Offline cache: `road-warrior-staging-v26`.
+- **Version:** v26 = v25 features, with the content moved into `data/` files (code overhaul; nothing you see should have changed). This test copy is marked TEST on the home-screen icon and name, and in a top banner. Offline cache: `road-warrior-staging-v26b`.
 
-> **This is the STAGING copy.** It shows a red STAGING banner and stores everything under a `stg_` prefix so it never touches the live app's saved data. It is generated from the live copy: see "Staging vs live" below.
+> **This is the TEST / staging copy.** It shows a red **TEST COPY - staging** banner, a TEST home-screen icon, and the home-screen name **RW TEST**, and stores everything under a `stg_` prefix so it never touches the live app's saved data. It is generated from the live copy: see "Staging vs live" below.
 
 ## What it does
 
@@ -51,11 +51,11 @@ After ANY change, run the self-test (below). If you add or remove a file, run `p
 - Never put passwords, keys, or tokens in any file here; this repo is public.
 - `pool-trainer-single.html` (generated).
 - The `sw.js` cache-name pattern: it must change (bump the number) on every release, and keep its prefix (`pool-trainer-` live, `road-warrior-staging-` staging).
-- `staging.js`, the banner, the `stg_` prefix and the staging cache name stay in this copy only. Never copy them to live.
+- `staging.js`, the TEST banner, the TEST home-screen name and icons, the `stg_` prefix and the staging cache name stay in this copy only. Never copy them to live.
 
 ## Staging vs live
 
-Live and staging use the same code and data. Staging adds a banner, the `stg_` storage shim and its own cache name. In the working folder the staging copy is regenerated from the live copy with `tools/make_staging.py`, so they cannot drift. Staging is feel-tested first; the same files go live only after Scott says yes.
+Live and staging use the same code and data. Staging adds a TEST banner, the TEST home-screen name (`RW TEST`) and TEST-stamped icons, the `stg_` storage shim and its own cache name. In the working folder the staging copy is regenerated from the live copy with `tools/make_staging.py`, so they cannot drift. Staging is feel-tested first; the same files go live only after Scott says yes.
 
 ## Where the helper scripts live
 
