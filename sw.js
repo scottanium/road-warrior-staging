@@ -1,0 +1,10 @@
+const C = "road-warrior-staging-v26";
+const FILES = ["./", "./index.html", "./staging.js", "./shared/util.js", "./legal.js", "./install.js", "./update.js", "./data/labels.js", "./data/library.js", "./data/plan-days.js", "./data.js", "./data/weekly-plan.js", "./data/rightcut.js", "./geometry.js", "./shotlab.js", "./data/adaptive.js", "./adaptive.js", "./testcounter.js", "./progress.js", "./backup.js", "./timer.js", "./data/tourdata.js", "./data/gas-prices.js", "./tripcost.js", "./profit.js", "./history.js", "./money.js", "./data/config.js", "./tournaments.js", "./data/rulesets.js", "./rulescmp.js", "./data/layouts.js", "./layouts.js", "./tablecapture.js", "./theme.js", "./data/credits.js", "./credits.js", "./tour.js", "./dayprompt.js", "./app.js", "./LICENSE.txt", "./manifest.json", "./icons/apple-touch-icon.png", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/icon-maskable-512.png"];
+self.addEventListener("install", (e) => { e.waitUntil(caches.open(C).then((c) => c.addAll(FILES)).then(() => self.skipWaiting())); });
+self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((x) => x !== C && x.indexOf("road-warrior-staging") === 0).map((x) => caches.delete(x)))).then(() => self.clients.claim())); });
+self.addEventListener("fetch", (e) => {
+  if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
+  e.respondWith(fetch(e.request).then((r) => { const cp = r.clone(); caches.open(C).then((c) => c.put(e.request, cp)); return r; }).catch(() => caches.match(e.request, { ignoreSearch: true }).then((m) => m || caches.match("./index.html"))));
+});
+self.addEventListener("notificationclick", (e) => { e.notification.close(); e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((cs) => { for (const c of cs) { if ("focus" in c) return c.focus(); } return self.clients.openWindow ? self.clients.openWindow("./#today") : null; })); });
+self.addEventListener("message", (e) => { if (e.data && (e.data === "SKIP_WAITING" || e.data.type === "SKIP_WAITING")) self.skipWaiting(); });

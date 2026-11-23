@@ -1,0 +1,29 @@
+{
+  "name": "The Road Warrior: Pool Tracker and Trainer STAGING",
+  "short_name": "RW STAGING",
+  "description": "Pool tournament tracker and trainer: tournaments, trip costs, payouts and history, plus drills, a daily plan, Shot Lab and a practice log.",
+  "start_url": "./index.html?staging=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f1412",
+  "theme_color": "#0b3d2e",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "./?staging=1"
+}
